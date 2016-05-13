@@ -1,0 +1,18 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        n1 = max(nums)
+        n2 = min(nums)
+        l = n1 - n2 + 1
+        c = [None]*l
+        for i in xrange(len(nums)):
+            j = target - nums[i] - n2
+            if j >= 0 and j < l:
+                x = c[j]
+                if x != None:
+                    return [x, i]
+            c[nums[i]-n2] = i
