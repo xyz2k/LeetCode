@@ -1,0 +1,18 @@
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if numRows == 1: return s
+        t = [''] * numRows
+        i, j, d, n, x = 0, 0, 1, len(s), numRows - 1
+        while True:
+            t[j] += s[i]
+            i += 1
+            if i >= n: break
+            j += d
+            if j == x: d = -1
+            elif j == 0: d = 1
+        return ''.join(t)
